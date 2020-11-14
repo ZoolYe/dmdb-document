@@ -30,14 +30,14 @@
 
   ```yaml
   freemarker:
-  	# 生成文档文件输出路径
+    # 生成文档文件输出路径
     outFilePath: /Users/Test/Desktop
     # 文档名称 注意必须已.doc文件结尾
     outFileName: dmdb.doc
   ```
 
 - 接口调用
-  - `http://localhost:8080/generateDoc（根据数据库用户生成用户下所有表结构文档）
+  - `http://localhost:8080/generateDoc`（根据数据库用户生成用户下所有表结构文档）
   - `http://localhost:8080/dmdbDoc/getAllTablesByUser`（返回当前数据库用户下所有表）
   - `http://localhost:8080/getTableAllFieldByTableName?tableName=TEST`（根据表名返回表结构信息）
 
