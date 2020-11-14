@@ -74,15 +74,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 请自行替换可正常下载驱动坐标信息 -->
         <dependency>
             <groupId>com.dameng</groupId>
             <artifactId>damengdb</artifactId>
             <version>17</version>
         </dependency>
         <dependency>
-            <groupId>com.js.alibaba</groupId>
+            <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>11</version>
+            <version>1.2.3</version>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
