@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zool.dmdbdocument.dao.mapper.DmdbDocMapper">
+
+    <select id="queryAllTablesBaseInfoByUser" resultType="com.zool.dmdbdocument.dao.dataobject.TablesBaseInfoDO">
+        SELECT DISTINCT T1.TABLE_NAME AS tableName,T2.COMMENTS AS tableComment
+        FROM USER_TAB_COLUMNS T1 INNER JOIN USER_TAB_COMMENTS T2 ON T1.TABLE_NAME = T2.TABLE_NAME
+    </select>
+
+    <select id="queryTableAllFieldByTableName" resultType="com.zool.dmdbdocument.dao.dataobject.TablesFieldInfoDO">
+        SELECT
+        T2.TABLE_NAME AS tableName,
+        T2.COLUMN_NAME AS columnName,
+        T1.COMMENTS AS comments,
+        T2.DATA_TYPE AS dataType,
+        T2.DATA_LENGTH AS dataLength,
+        T2.NULLABLE AS nullable,
+        T2.DATA_DEFAULT AS dataDefault,
+        CASE WHEN CONSTRAINT_TYPE='P' THEN 'PRI' END AS key
+        FROM USER_COL_COMMENTS T1, USER_TAB_COLUMNS T2,
+        (SELECT T4.TABLE_NAME, T4.COLUMN_NAME ,T5.CONSTRAINT_TYPE
+        FROM USER_CONS_COLUMNS T4, USER_CONSTRAINTS T5
+        WHERE T4.CONSTRAINT_NAME = T5.CONSTRAINT_NAME AND T5.CONSTRAINT_TYPE = 'P')T3
+        WHERE T1.TABLE_NAME = T2.TABLE_NAME
+        AND T1.COLUMN_NAME=T2.COLUMN_NAME
+        AND T1.TABLE_NAME = T3.TABLE_NAME(+)
+        AND T1.COLUMN_NAME=T3.COLUMN_NAME(+)
+        AND T1.TABLE_NAME = #{tableName}
+        ORDER BY T2.TABLE_NAME,T2.COLUMN_ID
+    </select>
+</mapper>

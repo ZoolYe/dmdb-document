@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: dmdb-document
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: dm.jdbc.driver.DmDriver
+    platform: dm
+    # 数据库地址及端口号
+    url: jdbc:dm://127.0.0.1:5236
+    # 数据库用户名
+    username: TEST
+    # 数据库密码
+    password: TEST
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    filters: stat,wall,log4j
+    logSlowSql: true
+  resources:
+    static-locations: classpath:/static/
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+
+freemarker:
+  # 模板位置
+  templateLocation: /static
+  # 模板名称
+  templateName: dmdbDoc.ftl
+  # 生成文档文件输出路径
+  outFilePath: /Users/Test/Desktop
+  # 文档名称 注意必须已.doc文件结尾
+  outFileName: dmdb.doc
