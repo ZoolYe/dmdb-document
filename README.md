@@ -2,7 +2,7 @@
 
 ---
 
-![文档图片](/Users/zool/Desktop/dm.png)
+![文档样式](./start/src/main/resources/static/dm.png)
 
 ---
 
