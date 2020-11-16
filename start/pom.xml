@@ -74,11 +74,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- 请自行替换可正常下载驱动坐标信息 -->
         <dependency>
             <groupId>com.dameng</groupId>
-            <artifactId>damengdb</artifactId>
-            <version>17</version>
+            <artifactId>Dm7JdbcDriver17</artifactId>
+            <version>7.6.0.165</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
