@@ -39,3 +39,10 @@ freemarker:
   outFilePath: /Users/Test/Desktop
   # 文档名称 注意必须已.doc文件结尾
   outFileName: dmdb.doc
+
+# 日志
+log:
+  # 请求日志
+  request:
+    # 开启请求日志
+    enabled: true
