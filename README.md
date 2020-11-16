@@ -10,12 +10,13 @@
 
 - 下载项目
 
-- 默认使用的是达梦7驱动 `start`模块下`pom.xml`文件
+- 项目默认使用达梦7驱动 在`start`模块下`pom.xml`文件 77至81行代码
 ```xml
+<!-- 如需使用达梦8驱动请自行替换成以下坐标信息 -->
 <dependency>
     <groupId>com.dameng</groupId>
-    <artifactId>Dm7JdbcDriver17</artifactId>
-    <version>7.6.0.165</version>
+    <artifactId>Dm8JdbcDriver18</artifactId>
+    <version>8.1.1.49</version>
 </dependency>
 ```
 
